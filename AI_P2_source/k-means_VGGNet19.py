@@ -83,7 +83,7 @@ def customloss_by_sihyeonlee(y_true, y_pred):
         similarity = tf.tensordot(cents[0], cents[1], axes=1)
         sum_similarity += tf.reduce_sum(similarity)  # 코사인 유사도 전부 더해서 로그 씌울것.
 
-    cent_concated = tf.stack(cent_list, axis=0)  # 2차원 텐서 생성
+    cent_concated = tf.stack(cent_list, axis=0)
     label_distance = tf.norm(
         tf.expand_dims(cent_concated, axis=1) - tf.expand_dims(cent_concated, axis=0),
         axis=-1,
